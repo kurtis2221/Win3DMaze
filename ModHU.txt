@@ -1,0 +1,46 @@
+Info
+====
+Ha rosszul van valami beállítva ezekben a fájlokban a játék nem fog elindulni!
+Induláskor kiírja a hibákat, hogy melyik fájl olvasása közben történt.
+Minden txt fájl a saját mappájában nézi a képfájlokat, kivéve a Setup.txt.
+
+Data\Textures.txt
+=================
+Név
+Fájlnév (png, tga)
+Point|Bilinear|Trilinear
+Unlit/Texture|Diffuse|Custom/HSVRangeShader
+
+Data\Sprites.txt
+================
+Név
+Fájlnév (png, tga)
+Szín (HEX, RGBA)
+
+Data\Map.txt
+============
+Név
+Fájlnév (png, tga)
+Szín (HEX, RGBA)
+
+Data\Setups.txt
+===============
+Név
+Fal textúra
+Padló textúra
+Plafon textúra
+OpenGL textúra
+Háttérszín (HEX, RGBA)
+Köd szín (HEX, RGBA)
+Köd sűrűség (0.0-1.0) (0 köd típus esetén távolság)
+Köd (0,1); Köd típus (0-2); Padló be/ki (0,1); Plafon be/ki (0,1)
+Start sprite
+Cél sprite
+OpenGL sprite
+Egér sprite
+Játékos jelölő
+Start jelölő
+Cél jelölő
+OpenGL jelölő
+Fordító jelölő
+Egér jelölő

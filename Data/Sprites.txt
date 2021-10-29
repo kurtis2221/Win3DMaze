@@ -1,0 +1,12 @@
+START
+start.png
+FFFFFF80
+FIN
+fin.png
+FFFFFF80
+GL
+gl.png
+FFFFFF80
+RAT
+rat.png
+FFFFFFFF
