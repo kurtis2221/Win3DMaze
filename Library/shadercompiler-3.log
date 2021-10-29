@@ -1,0 +1,9 @@
+Base path: E:/Unity4/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-3-576
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=1 type=0 insize=2287 outsize=132 kw=PIXELSNAP_ON ok=1
+Unhandled exception: Readfile from pipe failed. GLE=A pipe használata befejezõdött.
+
+
+Quitting shader compiler process

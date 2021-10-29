@@ -1,0 +1,46 @@
+Info
+====
+If something is set wrongly in these files, then the game won't start.
+On start the game what file was read when showing errors.
+All txt file looks for files in their folder, except Setup.txt.
+
+Data\Textures.txt
+=================
+Name
+File name (png, tga)
+Point|Bilinear|Trilinear
+Unlit/Texture|Diffuse|Custom/HSVRangeShader
+
+Data\Sprites.txt
+================
+Name
+File name (png, tga)
+Color (HEX, RGBA)
+
+Data\Map.txt
+============
+Name
+File name (png, tga)
+Color (HEX, RGBA)
+
+Data\Setups.txt
+===============
+Name
+Wall texture
+Floor texture
+Ceiling texture
+OpenGL texture
+Background color (HEX, RGBA)
+Fog color (HEX, RGBA)
+Fog density (0.0-1.0) (if fog type is 0 then distance)
+Fog (0,1); Fog type (0-2); Floor on/off (0,1); Ceiling on/off (0,1)
+Start sprite
+Finish sprite
+OpenGL sprite
+Rat sprite
+Player marker
+Start marker
+Finish marker
+OpenGL marker
+Flip marker
+Rat marker

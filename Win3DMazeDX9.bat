@@ -1,0 +1,1 @@
+start Win3DMaze.exe -force-d3d9
