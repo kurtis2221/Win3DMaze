@@ -66,3 +66,15 @@ Cheats
 Backspace + I - Flip
 Backspace + O - NoClip on
 Backspace + P - NoClip off
+
+===============
+Version history
+===============
+1.1
+===
+- Map fixed when you're upside down
+- Confirm message will appear when ESC is pressed
+
+1.0
+===
+- First release

@@ -10,6 +10,7 @@ public class PlayerCtrl : MonoBehaviour
 	
 	public static PlayerCtrl inst;
 	public Camera map_cam;
+    public GameObject quit_txt;
 	CharacterController ctrl;
 	Transform tran;
 	//Control type
@@ -27,6 +28,8 @@ public class PlayerCtrl : MonoBehaviour
 	Quaternion target_spin;
 	bool flipped;
 	System.Action spin_hndl;
+    //Quit message
+    bool quit_prompt;
 	
 	void Awake()
 	{
@@ -62,10 +65,32 @@ public class PlayerCtrl : MonoBehaviour
 	
 	void Update()
 	{
+        if(quit_prompt)
+        {
+            if(Input.GetKeyUp(KeyCode.Y))
+            {
+                Application.LoadLevel((int)GameLevels.Menu);
+            }
+            else if(Input.GetKeyUp(KeyCode.N))
+            {
+                quit_prompt = false;
+                quit_txt.SetActive(false);
+            }
+            return;
+        }
 		if(Input.GetKeyDown(KeyCode.Escape))
-			Application.LoadLevel((int)GameLevels.Menu);
+        {
+            quit_prompt = true;
+            quit_txt.SetActive(true);
+        }
 		else if(Input.GetButtonDown("Map"))
+        {
 			map_cam.enabled = !map_cam.enabled;
+        }
+        else if(Input.GetButton("New"))
+        {
+            GameControl.inst.CreateNewMaze();
+        }
 		else if(Input.GetKey(KeyCode.Backspace))
 		{
 			if(Input.GetKeyDown(KeyCode.O))
@@ -94,6 +119,7 @@ public class PlayerCtrl : MonoBehaviour
 			{
 				spin = false;
 				flipped = !flipped;
+                CameraMirror.inverted = flipped;
 				if(spin_hndl != null) spin_hndl();
 			}
 			return;
@@ -123,6 +149,7 @@ public class PlayerCtrl : MonoBehaviour
 		ctrl_mov = true;
 		coll_chk = true;
 		flipped = false;
+        CameraMirror.inverted = false;
 		this.x = x;
 		this.y = y;
 		tran.position = GameControl.GetGridCoords(x, y);

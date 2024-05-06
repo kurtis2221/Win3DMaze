@@ -66,3 +66,15 @@ Csalások
 Backspace + I - Megfordítás
 Backspace + O - Falon átjárás be
 Backspace + P - Falon átjárás ki
+
+==============
+Verziótörténet
+==============
+1.1
+===
+- Térkép javítva amikor fejjel lefele vagy
+- ESC megnyomására megerősítő üzenet jelenik meg
+
+1.0
+===
+- Első kiadás
