@@ -113,13 +113,7 @@ public class GameControl : MonoBehaviour
 		Vector3 pos = player.position;
 		if(finish_bound.Contains(pos))
 		{
-			EnablePlayer(false);
-			ObjScale.inst.Scale(-1f, RebuildMaze);
-		}
-		else if(Input.GetButton("New"))
-		{
-			EnablePlayer(false);
-			ObjScale.inst.Scale(-1f, RebuildMaze);
+            CreateNewMaze();
 		}
 		for(int i = sphere_list.Count -1; i >= 0; i--)
 		{
@@ -136,6 +130,12 @@ public class GameControl : MonoBehaviour
 			}
 		}
 	}
+
+    public void CreateNewMaze()
+    {
+        EnablePlayer(false);
+        ObjScale.inst.Scale(-1f, RebuildMaze);
+    }
 	
 	//For windowed mode
 	void OnApplicationFocus(bool stat)
