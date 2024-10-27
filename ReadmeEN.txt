@@ -70,6 +70,16 @@ Backspace + P - NoClip off
 ===============
 Version history
 ===============
+1.3
+===
+- Random variable settings for opengl wall and sprite, flip
+- Transparent texture support
+- New setup: DefaultAlt
+
+1.2
+===
+- Mod tool added for easier modding
+
 1.1
 ===
 - Map fixed when you're upside down

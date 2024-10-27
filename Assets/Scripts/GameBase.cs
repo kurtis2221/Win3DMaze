@@ -98,6 +98,15 @@ public class MazeSetup
 	public string map_rat;
 }
 
+public class MazeRandom
+{
+    public int sphere_min;
+    public int sphere_max;
+    public int opengl_min;
+    public int opengl_max;
+    public int wall2_perc;
+}
+
 public class SphereObj
 {
 	public GameObject obj;

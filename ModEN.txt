@@ -44,3 +44,10 @@ Finish marker
 OpenGL marker
 Flip marker
 Rat marker
+
+Data\Random.txt
+===============
+Name (Setups.txt)
+Flip minimum; maximum (0-5000)
+OpenGL sprite minimum; maximum (0-5000)
+OpenGL wall % occurrence chance (0-100)

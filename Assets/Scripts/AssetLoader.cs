@@ -11,6 +11,7 @@ public class AssetLoader : MonoBehaviour
 	const string FLD_SPRITE = FLD_DATA + "Sprites";
 	const string FLD_MAP = FLD_DATA + "Map";
 	const string FILE_SETUP = FLD_DATA + "Setups.txt";
+    const string FILE_RANDOM = FLD_DATA + "Random.txt";
 	const string FILE_TEXTURE = FLD_TEXTURE + ".txt";
 	const string FILE_SPRITE = FLD_SPRITE + ".txt";
 	const string FILE_MAP = FLD_MAP + ".txt";
@@ -24,6 +25,16 @@ public class AssetLoader : MonoBehaviour
 	public static Dictionary<string, Material> sprites;
 	public static Dictionary<string, Material> map_ico;
 	public static Dictionary<string, MazeSetup> setups;
+    public static Dictionary<string, MazeRandom> randoms;
+
+    public static MazeRandom random_default = new MazeRandom()
+    {
+        sphere_min = 5,
+        sphere_max = 10,
+        opengl_min = 5,
+        opengl_max = 10,
+        wall2_perc = 5
+    };
 	
 	public static int loaded;
 	int loading;
@@ -79,6 +90,8 @@ public class AssetLoader : MonoBehaviour
 			map_ico = new Dictionary<string, Material>();
 			//Setup definitions
 			setups = new Dictionary<string, MazeSetup>();
+            //Random definitions
+            randoms = new Dictionary<string, MazeRandom>();
 			//Code shortening
 			DataItem[] chk_arr =
 			{
@@ -183,6 +196,28 @@ public class AssetLoader : MonoBehaviour
 					}));
 				}
 			}
+            //Randoms
+            lastfile = FILE_RANDOM;
+            //Optional
+            if(File.Exists(Path.Combine(GameBase.game_path, lastfile)))
+            {
+                using(StreamReader sr = new StreamReader(Path.Combine(GameBase.game_path, lastfile), Encoding.Default))
+                {
+                    while(sr.Peek() > -1)
+                    {
+                        MazeRandom rnd = new MazeRandom();
+                        string name = sr.ReadLine();
+                        string[] tmp = sr.ReadLine().Split(',');
+                        rnd.sphere_min = int.Parse(tmp[0]);
+                        rnd.sphere_max = int.Parse(tmp[1]);
+                        tmp = sr.ReadLine().Split(',');
+                        rnd.opengl_min = int.Parse(tmp[0]);
+                        rnd.opengl_max = int.Parse(tmp[1]);
+                        rnd.wall2_perc = int.Parse(sr.ReadLine());
+                        randoms.Add(name, rnd);
+                    }
+                }
+            }
 			//Check if dictionaries are OK
 			foreach(var s in setups)
 			{

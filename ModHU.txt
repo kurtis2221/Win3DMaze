@@ -44,3 +44,10 @@ Cél jelölő
 OpenGL jelölő
 Fordító jelölő
 Egér jelölő
+
+Data\Random.txt
+===============
+Név (Setups.txt)
+Megfordító minimum; maximum (0-5000)
+OpenGL sprite minimum; maximum (0-5000)
+OpenGL fal % előfordulás esély (0-100)

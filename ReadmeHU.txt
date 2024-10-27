@@ -70,6 +70,16 @@ Backspace + P - Falon átjárás ki
 ==============
 Verziótörténet
 ==============
+1.3
+===
+- Véletlenszerű változók állíthatósága opengl fal, sprite, megfordító
+- Áttetsző textúra támogatás
+- Új setup: DefaultAlt
+
+1.2
+===
+- Mod program hozzáadva az egyszerűbb moddolhatósághoz
+
 1.1
 ===
 - Térkép javítva amikor fejjel lefele vagy

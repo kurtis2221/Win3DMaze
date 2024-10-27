@@ -69,6 +69,7 @@ public class GameControl : MonoBehaviour
 	static Vector3 bound_size = new Vector3(4f, 4f, 4f);
 	
 	MazeSetup setup;
+    MazeRandom maze_rnd;
 	int maze_gen_cnt;
 	
 	//Rat creation
@@ -87,6 +88,8 @@ public class GameControl : MonoBehaviour
 	void Start()
 	{
 		setup = AssetLoader.setups[MenuScript.curr_setup];
+        if(!AssetLoader.randoms.TryGetValue(MenuScript.curr_setup, out maze_rnd))
+            maze_rnd = AssetLoader.random_default;
 		//Floor and Ceiling texture
 		if(setup.hasfloor) floor.material = AssetLoader.materials[setup.floor];
 		else floor.enabled = false;
@@ -187,10 +190,10 @@ public class GameControl : MonoBehaviour
 		CreateMapObj(finish.position, setup.map_finish);
 		finish_bound = CreateBounds(finish.position);
 		//Spheres
-		for(int i = 0; i < Random.Range(5, 10); i++)
+		for(int i = 0; i < Random.Range(maze_rnd.sphere_min, maze_rnd.sphere_max); i++)
 			CreateSphere(GetRandomPos(), Random.Range(0, 3));
 		//OpenGL
-		for(int i = 0; i < Random.Range(5, 10); i++)
+        for(int i = 0; i < Random.Range(maze_rnd.opengl_min, maze_rnd.opengl_max); i++)
 			CreateMapObj(CreateSprite(GetRandomPos(), setup.opengl).position, setup.map_opengl);
 		//Rat
 		if(rat == null)
@@ -242,7 +245,7 @@ public class GameControl : MonoBehaviour
 	{
 		obj = (GameObject)GameObject.Instantiate(obj, pos + wall_offs[input].pos, wall_offs[input].rot);
 		obj.transform.parent = walls;
-		if(Random.Range(0, 100) < 5) obj.GetComponent<Renderer>().material = AssetLoader.materials[setup.wall2];
+        if(Random.Range(0, 100) < maze_rnd.wall2_perc) obj.GetComponent<Renderer>().material = AssetLoader.materials[setup.wall2];
 		wall_list.Add(obj.transform);
 	}
 	
